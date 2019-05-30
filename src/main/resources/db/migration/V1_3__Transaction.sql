@@ -1,0 +1,21 @@
+CREATE TABLE fund_transaction (
+  id                    BIGINT IDENTITY (1, 1) NOT NULL,
+  system        VARCHAR(32)                 DEFAULT NULL,
+  bank_code             VARCHAR(4)                    DEFAULT NULL,
+  debit_account_name    VARCHAR(512)                    DEFAULT NULL,
+  debit_account_number  VARCHAR(32)                     DEFAULT NULL,
+  beneficiary_name      VARCHAR(512)                    DEFAULT NULL,
+  credit_account_number VARCHAR(32)                     DEFAULT NULL,
+  narration             TEXT                            DEFAULT NULL,
+  schedule_id           VARCHAR(50)                     DEFAULT NULL,
+  commission            VARCHAR(20)                     DEFAULT NULL,
+  transfer_type         VARCHAR(50)                     DEFAULT NULL,
+  amount                VARCHAR(50)                     DEFAULT NULL,
+  response_code         VARCHAR(10)                     DEFAULT NULL,
+  response_description  TEXT,
+  reference_number VARCHAR(50)                     DEFAULT NULL,
+  status                VARCHAR(255)                    DEFAULT NULL,
+  created_at            DATETIME               NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at            DATETIME               NULL     DEFAULT GETDATE(),
+  PRIMARY KEY (id)
+);
