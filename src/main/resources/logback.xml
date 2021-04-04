@@ -24,7 +24,7 @@
 
   </appender>
 
-  <logger name="com.xpresspayments.ZenithBank" level="info"
+  <logger name="com.upperlink.PolarisBank" level="info"
     additivity="false">
     <appender-ref ref="FILE-AUDIT"/>
   </logger>
