@@ -11,7 +11,6 @@ public class Application {
 
   public static void main(String[] args) {
     SpringApplication.run(Application.class, args);
-
 // to ignore SSL certificate
 // Create a trust manager that does not validate certificate chains
 //    SSLContext ctx = null;
