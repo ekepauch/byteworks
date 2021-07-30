@@ -1,4 +1,4 @@
-package com.upperlink.fcmb.exceptions;
+package com.bytework.exceptions;
 
 /**
  * Created by Lukman.Arogundade on 11/1/2016.

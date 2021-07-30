@@ -1,4 +1,4 @@
-package com.upperlink.fcmb.exceptions;
+package com.bytework.exceptions;
 
 public class ConflictException extends AbstractException {
 

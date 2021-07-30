@@ -1,8 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.upperlink.fcmb.util;
+
+package com.bytework.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.wordnik.swagger.annotations.ApiModelProperty;

@@ -1,4 +1,4 @@
-package com.upperlink.fcmb.util;
+package com.bytework.utils;
 
 import org.slf4j.Logger;
 

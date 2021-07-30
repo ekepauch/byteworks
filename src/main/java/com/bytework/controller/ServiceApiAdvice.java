@@ -1,24 +1,25 @@
-package com.upperlink.fcmb.controller;
+package com.bytework.controller;
 
 
-import com.upperlink.fcmb.exceptions.*;
-import com.upperlink.fcmb.util.LoggerUtil;
-import com.upperlink.fcmb.util.Response;
+import com.bytework.exceptions.*;
+import com.bytework.utils.LoggerUtil;
+import com.bytework.utils.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.AccessDeniedException;
+
 @Slf4j
-@ControllerAdvice(annotations = RestController.class, basePackages = "com.management.api")
+@ControllerAdvice(annotations = RestController.class, basePackages = "com.bytework.controller")
 @ResponseBody
 public class ServiceApiAdvice {
 
 
-    private  static final Logger logger = LoggerFactory.getLogger(ServiceApiAdvice.class);
+    private static final Logger logger = LoggerFactory.getLogger(ServiceApiAdvice.class);
 
 
     @ExceptionHandler(LockedException.class)
@@ -122,9 +123,10 @@ public class ServiceApiAdvice {
         response.setDescription("Security: Access Denied");
 
         logger.error("Access violation: Access Denied Exception");
+
+
         return response;
     }
-
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
