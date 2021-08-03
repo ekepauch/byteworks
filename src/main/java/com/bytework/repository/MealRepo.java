@@ -11,4 +11,6 @@ import java.util.List;
 public interface MealRepo extends JpaRepository<Meal,Long> {
 
     List<Meal> findByProviderId(Long providerId);
+
+
 }

@@ -1,8 +1,10 @@
 package com.bytework.controller;
 
 
+import com.bytework.dto.TransactionRessponse;
 import com.bytework.exceptions.NotFoundException;
 import com.bytework.model.Meal;
+import com.bytework.model.Payments;
 import com.bytework.model.ServiceProvider;
 import com.bytework.repository.CategoryRepo;
 import com.bytework.service.FoodService;
@@ -16,6 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,12 +36,26 @@ public class FoodController {
     @Autowired
     private FoodService foodService;
 
+
     @GetMapping("category")
     public List getCategories() {
         return (List) categoryRepo.findAll();
     }
 
 
+    @PostMapping("restaurant")
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public ResponseEntity<Response> createRestaurant(@RequestBody @Validated ServiceProvider serviceProvider)
+    {
+        HttpStatus httpCode;
+        Response resp = new Response();
+        foodService.createRestaurant(serviceProvider);
+        resp.setCode(CustomResponseCode.SUCCESS);
+        resp.setDescription("Successful");
+        resp.setData(serviceProvider);
+        httpCode = HttpStatus.CREATED;
+        return new ResponseEntity<>(resp, httpCode);
+    }
 
 
 
@@ -88,6 +105,14 @@ public class FoodController {
             throw new NotFoundException(CustomResponseCode.NOT_FOUND_EXCEPTION, "provider does not exist");
         }
         return meal;
+    }
+
+
+
+    @PostMapping("payments")
+    public TransactionRessponse makePayment(@RequestBody Payments payments) throws Exception {
+        TransactionRessponse response= foodService.savePayment(payments);
+        return response;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.upperlink.fcmb.domain.response;
+package com.bytework.paystack;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,9 +6,9 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NameEnquiryData {
-
+public class PaymentResponse {
 
     private String status;
-    private NameEnquiryResponseDesc description;
+    private String message;
+    private DataResponse data;
 }
