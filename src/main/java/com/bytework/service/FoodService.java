@@ -108,7 +108,7 @@ public class FoodService {
             Mail mail = new Mail();
             mail.setMailSubject(Constants.NOTIFICATION);
             mail.setMailTo(payments.getEmail());
-            String msg = "Dear " + " " + payments.getName() + "<br/>"+ " Find below your order details" +
+            String msg = "Dear " + " " + payments.getName() + "<br/>"+ " Find below your order details" +"<br/>"+
                     " Description " + "   " + payments.getDescription()  + "<br/>"+
                     "Amount" + "   "+ payments.getAmount() + "<br/>"+
                     "Email" + "   "+ payments.getEmail() + "<br/>"+
